@@ -1,0 +1,190 @@
+/*
+display property aspects:
+	inline
+		- has no height and width
+		- margin - horizontal only
+		- padding - horizontal works normally but vertically overflows parent
+    - can have other elements on horizontal sides
+	
+	inline-block
+		- has completely functioning height, width, margin, and padding
+    - can have other elements on horizontal sides
+	
+	block
+		- starts on a new line
+		- defaults full width
+    - normally can't have other elements on horizontal sides
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* width: 100vw; */
+  min-height: 100vh;
+  padding: 16px;
+  background: lightgrey;
+  font-family: "Roboto", sans-serif;
+
+  display: flex;
+  flex-direction: column;
+}
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+header {
+  background: lightgrey;
+  border: 2px solid black;
+
+  display: flex;
+  align-items: center;
+  padding: 16px;
+}
+header a > img {
+  border: 1px solid black;
+  margin: 0;
+
+  transition: all 0.5s ease-in-out;
+}
+a > img:hover {
+  opacity: 0.5;
+  border: 1px solid red;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+header ul {
+  margin-left: auto;
+}
+ul li a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 16px 32px;
+  border: 1px solid grey;
+  background-color: aquamarine;
+
+  transition: all 0.5s ease-in-out;
+}
+ul li a:hover {
+  /* font-weight: bold; */
+  /* border: 1px solid green; */
+  background: blueviolet;
+  color: wheat;
+}
+
+main {
+  background: wheat;
+  border: 2px solid red;
+
+  display: flex;
+  flex-grow: 1;
+}
+
+aside {
+  background: grey;
+  border: 2px solid greenyellow;
+  padding: 16px;
+
+  /* display: flex; */
+  width: 266px; /* 250 + 16 */
+}
+aside ul {
+  /* display: flex;
+  flex-grow: 1;
+
+  flex-direction: column;
+  align-items: stretch; */
+  padding: 0;
+  gap: 64px;
+  /* width: 100%; */
+}
+aside ul li a {
+  padding: 8px 16px;
+  border: 3px solid red;
+  /* width: 100%; */
+  display: block;
+}
+aside ul li {
+  border: 3px solid green;
+  width: 100%;
+  /* display: block; */
+}
+
+footer {
+  background: darkgrey;
+  border: 2px solid white;
+  padding: 16px;
+}
+footer ul {
+  display: flex;
+
+  /* flex-direction: column;
+  align-items: flex-start; */
+
+  flex-direction: row;
+  /* justify-content: space-around; */
+  justify-content: space-between;
+
+  padding: 0;
+  gap: 4px;
+}
+footer ul li a {
+  padding: 4px 8px;
+}
+
+/* .gridas  */
+.gridas {
+  border: 2px solid blue;
+
+  display: grid;
+  flex-grow: 1;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 50px;
+  padding: 16px;
+  gap: 8px;
+}
+.gridas > div {
+  border: 1px solid lightslategray;
+  background: lightblue;
+  padding: 4px;
+}
+
+.gridas > div:nth-child(5n - 4) {
+  border: 3px solid red;
+  background: yellow;
+  grid-column-start: span 2;
+  grid-row-start: span 2;
+}
+.gridas > div:nth-child(5n - 3) {
+  border: 4px solid blueviolet;
+  background: red;
+  grid-row-start: span 4;
+}
+.gridas > div:nth-child(5n - 2) {
+  border: 1px solid lightslategray;
+  background: brown;
+}
+.gridas > div:nth-child(5n - 1) {
+  border: 1px solid lightslategray;
+  background: blue;
+}
+.gridas > div:nth-child(5n) {
+  border: 1px solid lightslategray;
+  background: green;
+  grid-column-start: span 2;
+}
